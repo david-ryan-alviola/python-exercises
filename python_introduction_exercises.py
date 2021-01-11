@@ -2,5 +2,5 @@
 
 print("Hello, World!")
 
-greeting = "Konnichi wa, sekai!"
+greeting = "Konnichiwa, sekai!"
 print(greeting)
