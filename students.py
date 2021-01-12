@@ -132,19 +132,19 @@ prefer_medium_coffee = [student for student in students if student["coffee_prefe
 medium_students = 0
 for s in prefer_medium_coffee:
     medium_students += 1
-medium_students
+medium_students # 6
 
 prefer_dark_coffee = [student for student in students if student["coffee_preference"] == "dark"]
 dark_students = 0
 for s in prefer_dark_coffee:
     dark_students += 1
-dark_students
+dark_students # 5
 
 prefer_light_coffee = [student for student in students if student["coffee_preference"] == "light"]
 light_students = 0
 for s in prefer_light_coffee:
     light_students += 1
-light_students
+light_students # 3
 
 #How many types of each pet are there?
 pet_types = dict()
