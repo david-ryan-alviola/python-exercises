@@ -32,7 +32,7 @@ capitalized_fruits
 def has_more_than_two_vowels(word):
     vowel_count = 0
     vowels = ["a", "e", "i", "o", "u"]
-    letters = [letter for letter in word]
+    letters = [letter.lower() for letter in word]
     
     for letter in letters:
         if(letter in vowels):
@@ -50,7 +50,7 @@ fruits_with_more_than_two_vowels
 def has_only_two_vowels(word):
     vowel_count = 0
     vowels = ["a", "e", "i", "o", "u"]
-    letters = [letter for letter in word]
+    letters = [letter.lower() for letter in word]
     
     for letter in letters:
         if(letter in vowels):
@@ -120,7 +120,7 @@ numbers_plus_5
 def is_prime_num(num):
     if (num < 0):
         return False
-        
+
     is_prime = True
     
     for n in range(num):
