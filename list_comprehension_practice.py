@@ -121,15 +121,15 @@ def is_prime_num(num):
     if (num < 0):
         return False
 
-    is_prime = True
+    for n in range(2, num):
+        if (num % n == 0):
+            return False
     
-    for n in range(num):
-        if (n == 0 or n == 1):
-            continue
-        if (num % n == 0 and num != n):
-            is_prime = False
-    
-    return is_prime
+    return True
 
 primes = [n for n in numbers if is_prime_num(n)]
 primes
+
+# Alternate solution from Liam
+prime_list = [number for number in numbers if number >0 and all(number % numbers != 0 for numbers in range(2, number))]
+prime_list

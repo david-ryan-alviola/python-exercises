@@ -155,7 +155,7 @@ for s in students:
         else:
             pet_types[pet["species"]] = 1
 
-pet_types
+pet_types # {'horse': 4, 'cat': 11, 'dog': 3}
 
 #How many grades does each student have? Do they all have the same number of grades?
 number_of_grades_per_student = [len(student["grades"]) for student in students]
