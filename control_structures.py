@@ -252,10 +252,65 @@ while wants_to_continue:
     
 
 
-# In[ ]:
+# ## Convert given number grades into letter grades.
+#     # Prompt the user for a numerical grade from 0 to 100.
+#     # Display the corresponding letter grade.
+#     # Prompt the user to continue.
+#     # Assume that the user will enter valid integers for the grades.
+#     # The application should only continue if the user agrees to.
+
+# In[1]:
 
 
+wants_to_continue = True
 
+while wants_to_continue:
+    grade = input("Please enter the numerical grade:  ")
+    num_grade = int(grade)
+    
+    if (num_grade >= 88):
+        print("A")
+    elif (num_grade < 88 and num_grade >= 80):
+        print("B")
+    elif (num_grade < 80 and num_grade >= 67):
+        print("C")
+    elif (num_grade < 67 and num_grade >= 60):
+        print("D")
+    else:
+        print("F")
+    
+    user_continue = input("Do you want to continue (y/n)?  ")
+    
+    if (user_continue.lower() != "y" and user_continue.lower() != "yes"):
+        wants_to_continue = False
+
+
+# ## Create a list of dictionaries where each dictionary represents a book that you have read. Each dictionary in the list should have the keys title, author, and genre. Loop through the list and print out information about each book.
+#     # Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
+
+# In[3]:
+
+
+books = [{"title" : "mystery1", "author" : "author1", "genre" : "mystery"},
+         {"title" : "adventure1", "author" : "author2", "genre" : "adventure"},
+         {"title" : "biography1", "author" : "author3", "genre" : "nonfiction"},
+         {"title" : "mystery2", "author" : "author4", "genre" : "mystery"},
+         {"title" : "adventure2", "author" : "author5", "genre" : "adventure"},
+         {"title" : "biography2", "author" : "author6", "genre" : "nonfiction"},
+         {"title" : "reference1", "author" : "author7", "genre" : "nonfiction"}
+        ]
+
+genre = input("Please enter the genre you wish to search for:  ")
+
+match = False
+for book in books:
+        
+    if book["genre"] == genre:
+        print(book["title"])
+        match = True
+
+if not match:
+    print("No books of that genre.")
 
 
 # In[ ]:
