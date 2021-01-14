@@ -29,17 +29,17 @@ else:
 
 
 # ## create variables and make up values for
-#     # the number of hours worked in one week
-#     # the hourly rate
-#     # how much the week's paycheck will be
-#     # write the python code that calculates the weekly paycheck. You get paid time and a half if you work more than 40 hours
+#     1. the number of hours worked in one week
+#     2. the hourly rate
+#     3. how much the week's paycheck will be
+#     4. write the python code that calculates the weekly paycheck. You get paid time and a half if you work more than 40 hours
 # 
 
-# In[6]:
+# In[4]:
 
 
-hours_worked_per_week = 45
-hourly_rate = 41.59
+hours_worked_per_week = 41
+hourly_rate = 100
 
 def calculate_weekly_paycheck_amount(hours_worked_per_week, hourly_rate):
     regular_pay = hours_worked_per_week * hourly_rate
@@ -56,9 +56,9 @@ print("Pay for this week:  ${:.2f}".format(weekly_paycheck_amount))
 
 
 # ## While
-#     # Create an integer variable i with a value of 5.
-#     # Create a while loop that runs so long as i is less than or equal to 15
-#     # Each loop iteration, output the current value of i, then increment i by one.
+#     1. Create an integer variable i with a value of 5.
+#     2. Create a while loop that runs so long as i is less than or equal to 15
+#     3. Each loop iteration, output the current value of i, then increment i by one.
 
 # In[7]:
 
@@ -69,7 +69,7 @@ while i <= 15:
     i += 1
 
 
-#     # Create a while loop that will count by 2's starting with 0 and ending at 100. Follow each number with a new line.
+#     * Create a while loop that will count by 2's starting with 0 and ending at 100. Follow each number with a new line.
 
 # In[8]:
 
@@ -80,7 +80,7 @@ while i <= 100:
     i += 2
 
 
-#     # Alter your loop to count backwards by 5's from 100 to -10.
+#     * Alter your loop to count backwards by 5's from 100 to -10.
 
 # In[9]:
 
@@ -91,18 +91,19 @@ while i >= -10:
     i -= 5
 
 
-#     # Create a while loop that starts at 2, and displays the number squared on each line while the number is less than 1,000,000.
+#     * Create a while loop that starts at 2, and displays the number squared on each line while the number is less than 1,000,000.
 
-# In[10]:
+# In[9]:
 
 
 i = 2
 while i < 1_000_000:
     print(i)
-    i = i ** 2
+#     i = i ** 2
+    i **= 2 # shorthand of above code
 
 
-#     # Write a loop that uses print to create the output shown below.
+#     * Write a loop that uses print to create the output shown below.
 
 # In[11]:
 
@@ -114,7 +115,7 @@ while i > 0:
 
 
 # ## For Loops
-#     # Write some code that prompts the user for a number, then shows a multiplication table up through 10 for that number.
+#     * Write some code that prompts the user for a number, then shows a multiplication table up through 10 for that number.
 
 # In[17]:
 
@@ -125,7 +126,7 @@ for n in range(1,11):
     print("{} x {} = {}".format(n, user_num, n * int(user_num)))
 
 
-#     # Create a for loop that uses print to create the output shown below.
+#     * Create a for loop that uses print to create the output shown below.
 
 # In[18]:
 
@@ -136,7 +137,7 @@ for n in range(1, 10):
 
 
 # ## break and continue
-#     # Prompt the user for an odd number between 1 and 50. Use a loop and a break statement to continue prompting the user if they enter invalid input. (Hint: use the isdigit method on strings to determine this). Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
+#     * Prompt the user for an odd number between 1 and 50. Use a loop and a break statement to continue prompting the user if they enter invalid input. (Hint: use the isdigit method on strings to determine this). Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
 
 # In[27]:
 
@@ -163,7 +164,7 @@ for n in range(1, 51):
         print(f"Here is an odd number:  {n}")
 
 
-#     # The input function can be used to prompt for input and use that input in your python code. Prompt the user to enter a positive number and write a loop that counts from 0 to that number. (Hints: first make sure that the value the user entered is a valid number, also note that the input function returns a string, so you'll need to convert this to a numeric type.)
+#     * The input function can be used to prompt for input and use that input in your python code. Prompt the user to enter a positive number and write a loop that counts from 0 to that number. (Hints: first make sure that the value the user entered is a valid number, also note that the input function returns a string, so you'll need to convert this to a numeric type.)
 
 # In[30]:
 
@@ -177,7 +178,7 @@ for n in range (0, int(user_num) + 1):
     print(n)
 
 
-#     # Write a program that prompts the user for a positive integer. Next write a loop that prints out the numbers from the number the user entered down to 1.
+#     * Write a program that prompts the user for a positive integer. Next write a loop that prints out the numbers from the number the user entered down to 1.
 
 # In[35]:
 
@@ -192,13 +193,13 @@ for n in reversed(range(1, int(user_num) + 1)):
 
 
 # ## Fizzbuzz
-#     # One of the most common interview questions for entry-level programmers is the FizzBuzz test. Developed by Imran Ghory, the test is designed to test basic looping and conditional logic skills.
-#     # Write a program that prints the numbers from 1 to 100.
-#     # For multiples of three print "Fizz" instead of the number
-#     # For the multiples of five print "Buzz".
-#     # For numbers which are multiples of both three and five print "FizzBuzz".
+#     1. One of the most common interview questions for entry-level programmers is the FizzBuzz test. Developed by Imran Ghory, the test is designed to test basic looping and conditional logic skills.
+#     2. Write a program that prints the numbers from 1 to 100.
+#     3. For multiples of three print "Fizz" instead of the number
+#     4. For the multiples of five print "Buzz".
+#     5. For numbers which are multiples of both three and five print "FizzBuzz".
 
-# In[40]:
+# In[5]:
 
 
 for i in range(1, 101):
@@ -212,15 +213,15 @@ for i in range(1, 101):
     if (len(output) > 0):
         print(output)
     else:
-        print(str(i))
+        print(i)
 
 
 # ## Display a table of powers.
-#     # Prompt the user to enter an integer.
-#     # Display a table of squares and cubes from 1 to the value entered.
-#     # Ask if the user wants to continue.
-#     # Assume that the user will enter valid data.
-#     # Only continue if the user agrees to.
+#     1. Prompt the user to enter an integer.
+#     2. Display a table of squares and cubes from 1 to the value entered.
+#     3. Ask if the user wants to continue.
+#     4. Assume that the user will enter valid data.
+#     5. Only continue if the user agrees to.
 
 # In[9]:
 
@@ -243,6 +244,7 @@ while wants_to_continue:
     print("------ | ------- | -----")
     
     for i in range (1, num + 1):
+        # Look at solution for how to format properly
         print("{}      | {}       | {}".format(i, i ** 2, i ** 3))
     
     user_continue = input("Do you want to continue (y/n)?  ")
@@ -253,11 +255,11 @@ while wants_to_continue:
 
 
 # ## Convert given number grades into letter grades.
-#     # Prompt the user for a numerical grade from 0 to 100.
-#     # Display the corresponding letter grade.
-#     # Prompt the user to continue.
-#     # Assume that the user will enter valid integers for the grades.
-#     # The application should only continue if the user agrees to.
+#     1. Prompt the user for a numerical grade from 0 to 100.
+#     2. Display the corresponding letter grade.
+#     3. Prompt the user to continue.
+#     4. Assume that the user will enter valid integers for the grades.
+#     5. The application should only continue if the user agrees to.
 
 # In[1]:
 
@@ -286,9 +288,9 @@ while wants_to_continue:
 
 
 # ## Create a list of dictionaries where each dictionary represents a book that you have read. Each dictionary in the list should have the keys title, author, and genre. Loop through the list and print out information about each book.
-#     # Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
+#     * Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
 
-# In[3]:
+# In[8]:
 
 
 books = [{"title" : "mystery1", "author" : "author1", "genre" : "mystery"},
@@ -305,7 +307,7 @@ genre = input("Please enter the genre you wish to search for:  ")
 match = False
 for book in books:
         
-    if book["genre"] == genre:
+    if book["genre"] == genre.lower():
         print(book["title"])
         match = True
 
