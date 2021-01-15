@@ -169,20 +169,49 @@ assert remove_vowels("gym") == "gym"
 #     * First Name will become first_name
 #     * % Completed will become completed
 
-# In[52]:
+# In[62]:
 
 
 def normalize_name(name):
+    special_chars_removed = []
+    
     for char in name:
-        if char.isalpha()
+        if not char.isalpha():
+            special_chars_removed.append(" ")
+        else:
+            special_chars_removed.append(char)
+    
+    name = "".join(special_chars_removed)
+    
     formatted_name = name.lower().strip()
     formatted_name = formatted_name.replace(" ", "_")
-    
+    print(formatted_name)
     return formatted_name
 
 assert normalize_name("Name") == "name"
 assert normalize_name("First Name") == "first_name"
 assert normalize_name("% Completed") == "completed"
+
+
+# ### Write a function named cumulative_sum that accepts a list of numbers and returns a list that is the cumulative sum of the numbers in the list.
+
+# In[67]:
+
+
+def cumulative_sum(numbers):
+    total = 0
+    sums = []
+    
+    for num in numbers:
+        total += num
+        sums.append(total)
+    
+    return sums
+
+assert cumulative_sum([1, 1, 1]) == [1, 2, 3]
+assert cumulative_sum([1, 2, 3, 4]) == [1, 3, 6, 10]
+assert cumulative_sum([2, 4, 6, 8]) == [2, 6, 12, 20]
+assert cumulative_sum([1, 2, 3, 5, 8, 13, 21]) == [1, 3, 6, 11, 19, 32, 53]
 
 
 # In[ ]:
