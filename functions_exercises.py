@@ -214,8 +214,48 @@ assert cumulative_sum([2, 4, 6, 8]) == [2, 6, 12, 20]
 assert cumulative_sum([1, 2, 3, 5, 8, 13, 21]) == [1, 3, 6, 11, 19, 32, 53]
 
 
-# In[ ]:
+# ### Bonus 1. Create a function named twelveto24. It should accept a string in the format 10:45am or 4:30pm and return a string that is the representation of the time in a 24-hour format. Bonus write a function that does the opposite.
+
+# In[79]:
 
 
+def twelveto24(twelve_hour_time):
+    colons_removed = []
+    
+    for char in twelve_hour_time:
+        if char == ":":
+            colons_removed.append("")
+        else:
+            colons_removed.append(char)
+    
+    twelve_hour_time = "".join(colons_removed)
+    twenty_four_hour_time = 0
+    
+    if (twelve_hour_time.startswith("12")):
+        if (twelve_hour_time.find("am") > -1):
+            twelve_hour_time = twelve_hour_time.replace("am", "")
+            twenty_four_hour_time = int(twelve_hour_time) - 1200
+        else:
+            twelve_hour_time = twelve_hour_time.replace("pm", "")
+            twenty_four_hour_time = int(twelve_hour_time)
+    elif (twelve_hour_time.find("am") > -1):
+        twelve_hour_time = twelve_hour_time.replace("am", "")
+        twenty_four_hour_time = int(twelve_hour_time)
+    else:
+        twelve_hour_time = twelve_hour_time.replace("pm", "")
+        twenty_four_hour_time = int(twelve_hour_time) + 1200
+    
+    if (twenty_four_hour_time < 1):
+        twenty_four_hour_time = "0000"
+    elif (twenty_four_hour_time < 10):
+        twenty_four_hour_time = "000" + str(twenty_four_hour_time)
+    elif (twenty_four_hour_time < 60):
+        twenty_four_hour_time = "00" + str(twenty_four_hour_time)
 
+    return str(twenty_four_hour_time)
+
+assert twelveto24("10:45am") == "1045"
+assert twelveto24("4:30pm") == "1630"
+assert twelveto24("12:00am") == "0000"
+assert twelveto24("12:00pm") == "1200"
 
