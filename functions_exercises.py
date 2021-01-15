@@ -3,7 +3,7 @@
 
 # ### Define a function named is_two. It should accept one input and return True if the passed input is either the number or the string 2, False otherwise.
 
-# In[42]:
+# In[89]:
 
 
 def is_two(num):
@@ -11,13 +11,13 @@ def is_two(num):
 
 assert is_two(2)
 assert is_two(str(2))
-print("Positive tests passed.")
-assert is_two(4) # AssertionError expected
+assert is_two("2")
+assert is_two(4) == False
 
 
 # ### Define a function named is_vowel. It should return True if the passed string is a vowel, False otherwise.
 
-# In[43]:
+# In[87]:
 
 
 vowels = ["a", "e", "i", "o", "u"]
@@ -28,22 +28,21 @@ def is_vowel(string):
 for v in vowels:
     assert is_vowel(v)
 
-print("Positive tests passed.")
-assert is_vowel("D") # AssertionError expected
+assert is_vowel("D") == False
 
 
 # ### Define a function named is_consonant. It should return True if the passed string is a consonant, False otherwise. Use your is_vowel function to accomplish this.
 
-# In[44]:
+# In[91]:
 
 
 def is_consonant(string):
-    return not is_vowel(string)
+    return not is_vowel(string) and string.isalpha()
 
 assert is_consonant("D")
 assert is_consonant("z")
-print("Positive tests passed.")
-assert is_consonant("a") # AssertionError expected
+assert is_consonant("a") == False
+assert is_consonant("$") == False
 
 
 # ### Define a function that accepts a string that is a word. The function should capitalize the first letter of the word if the word starts with a consonant.
@@ -65,22 +64,22 @@ assert capitalize_consonants("umbrella") == "umbrella"
 
 # ### Define a function named calculate_tip. It should accept a tip percentage (a number between 0 and 1) and the bill total, and return the amount to tip.
 
-# In[23]:
+# In[93]:
 
 
 def calculate_tip(tip_percent, bill_total):
     if (tip_percent < 0):
-        return bill_total
+        return 0
     
     if (tip_percent > 1):
         tip_percent /= 100
         
-    return bill_total * (tip_percent + 1)
+    return bill_total * tip_percent
 
-assert calculate_tip(.5, 10) == 15
-assert calculate_tip(25, 100) == 125
-assert calculate_tip(-24, 24) == 24
-assert calculate_tip(0, 14) == 14
+assert calculate_tip(.5, 10) == 5
+assert calculate_tip(25, 100) == 25
+assert calculate_tip(-24, 24) == 0
+assert calculate_tip(0, 14) == 0
 
 
 # ### Define a function named apply_discount. It should accept a original price, and a discount percentage, and return the price after the discount is applied.
@@ -101,14 +100,15 @@ assert apply_discount(5, 100) == 0
 
 # ### Define a function named handle_commas. It should accept a string that is a number that contains commas in it as input, and return a number as output.
 
-# In[30]:
+# In[103]:
 
 
 def handle_commas(str_num):
-    return int("".join(str_num.split(",")))
+    return float("".join(str_num.split(",")))
 
 assert handle_commas("1,000,000") == 1_000_000
-assert handle_commas("1,000") == 1000
+assert handle_commas("1,000") == 1_000
+assert handle_commas("10,000.14") == 10_000.14
 
 
 # ### Define a function named get_letter_grade. It should accept a number and return the letter grade associated with that number (A-F).
@@ -140,19 +140,22 @@ assert get_letter_grade(59) == "F"
 
 # ### Define a function named remove_vowels that accepts a string and returns a string with all the vowels removed.
 
-# In[41]:
+# In[104]:
 
 
 def remove_vowels(word):
     vowels = ["a", "e", "i", "o", "u"]
-    
     trimmed_word = []
+    
     for letter in word:
-        if letter in vowels:
-            continue
-        trimmed_word.append(letter)
+        if letter not in vowels:
+            trimmed_word.append(letter)
     
     return "".join(trimmed_word)
+
+# Alternative solution
+# def remove_vowels(word):
+#     return "".join([c for c in word if not is_vowel(c)])
 
 assert remove_vowels("apple") == "ppl"
 assert remove_vowels("racecar") == "rccr"
@@ -169,14 +172,14 @@ assert remove_vowels("gym") == "gym"
 #     * First Name will become first_name
 #     * % Completed will become completed
 
-# In[62]:
+# In[108]:
 
 
 def normalize_name(name):
     special_chars_removed = []
     
     for char in name:
-        if not char.isalpha():
+        if not char.isidentifier():
             special_chars_removed.append(" ")
         else:
             special_chars_removed.append(char)
@@ -185,17 +188,18 @@ def normalize_name(name):
     
     formatted_name = name.lower().strip()
     formatted_name = formatted_name.replace(" ", "_")
-    print(formatted_name)
+    
     return formatted_name
 
 assert normalize_name("Name") == "name"
 assert normalize_name("First Name") == "first_name"
 assert normalize_name("% Completed") == "completed"
+assert normalize_name("l337 h@x0r") == "l____h_x_r"
 
 
 # ### Write a function named cumulative_sum that accepts a list of numbers and returns a list that is the cumulative sum of the numbers in the list.
 
-# In[67]:
+# In[116]:
 
 
 def cumulative_sum(numbers):
@@ -212,11 +216,13 @@ assert cumulative_sum([1, 1, 1]) == [1, 2, 3]
 assert cumulative_sum([1, 2, 3, 4]) == [1, 3, 6, 10]
 assert cumulative_sum([2, 4, 6, 8]) == [2, 6, 12, 20]
 assert cumulative_sum([1, 2, 3, 5, 8, 13, 21]) == [1, 3, 6, 11, 19, 32, 53]
+assert cumulative_sum([1]) == [1]
+assert cumulative_sum([]) == []
 
 
 # ### Bonus 1. Create a function named twelveto24. It should accept a string in the format 10:45am or 4:30pm and return a string that is the representation of the time in a 24-hour format. Bonus write a function that does the opposite.
 
-# In[79]:
+# In[107]:
 
 
 def twelveto24(twelve_hour_time):
@@ -251,6 +257,8 @@ def twelveto24(twelve_hour_time):
         twenty_four_hour_time = "000" + str(twenty_four_hour_time)
     elif (twenty_four_hour_time < 60):
         twenty_four_hour_time = "00" + str(twenty_four_hour_time)
+    elif (twenty_four_hour_time < 1000):
+        twenty_four_hour_time = "0" + str(twenty_four_hour_time)
 
     return str(twenty_four_hour_time)
 
@@ -258,4 +266,11 @@ assert twelveto24("10:45am") == "1045"
 assert twelveto24("4:30pm") == "1630"
 assert twelveto24("12:00am") == "0000"
 assert twelveto24("12:00pm") == "1200"
+assert twelveto24("4:44am") == "0444"
+
+
+# In[ ]:
+
+
+
 
