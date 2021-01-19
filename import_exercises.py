@@ -7,7 +7,7 @@
 #     2. use from to import the function directly
 #     3. use from and give the function a different name
 
-# In[4]:
+# In[89]:
 
 
 import functions_exercises
@@ -106,7 +106,7 @@ total_balance = sum(float_balances)
 print(total_balance)
 
 
-# In[54]:
+# In[92]:
 
 
 # 5. Average balance per user
@@ -114,7 +114,7 @@ average_balance = total_balance / total_users
 print(round(average_balance, 2))
 
 
-# In[67]:
+# In[93]:
 
 
 # 6. User with the lowest balance
@@ -122,10 +122,10 @@ lowest_balance = min(float_balances)
 low_balance_index = float_balances.index(lowest_balance)
 
 low_balance_user = list_of_profiles[low_balance_index]
-print("User:  {}; Balance:  {}".format(low_balance_user["_id"], low_balance_user["balance"]))
+print("User:  {}; Balance:  {}".format(low_balance_user["name"], low_balance_user["balance"]))
 
 
-# In[68]:
+# In[94]:
 
 
 # 7. User with the highest balance
@@ -133,10 +133,10 @@ highest_balance = max(float_balances)
 high_balance_index = float_balances.index(highest_balance)
 
 high_balance_user = list_of_profiles[high_balance_index]
-print("User:  {}; Balance:  {}".format(high_balance_user["_id"], high_balance_user["balance"]))
+print("User:  {}; Balance:  {}".format(high_balance_user["name"], high_balance_user["balance"]))
 
 
-# In[75]:
+# In[95]:
 
 
 # 8. Most common favorite fruit
@@ -160,24 +160,14 @@ least_common_favorite_fruit = min(favorite_fruits)
 least_common_favorite_fruit
 
 
-# In[85]:
+# In[99]:
 
 
 # 10. Total number of unread messages for all users
-list_of_greetings = [user["greeting"] for user in list_of_profiles]
-unread_message_count = []
+def extract_digits(s):
+    return "".join([c for c in s if c.isnumeric()])
 
-for greeting in list_of_greetings:
-    for word in greeting:
-        if word.isnumeric():
-            unread_message_count.append(int(word))
-            
-unread_messages = sum(unread_message_count)
-unread_messages
+unread_message_count = [extract_digits(user["greeting"]) for user in list_of_profiles]
 
-
-# In[ ]:
-
-
-
+sum([int(message) for message in unread_message_count])
 
